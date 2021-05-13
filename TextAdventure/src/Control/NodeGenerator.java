@@ -12,14 +12,16 @@ public class NodeGenerator {
 
     private void onStart()
     {
-        Node n1 = createNode(NodeType.EndNode, "Ende 1");
-        Node n2 = createNode(NodeType.EndNode, "Ende 2");
-        Node n3 = createNode(NodeType.EndNode, "Ende 3");
-        Node n4 = createNode(NodeType.EndNode, "Ende 4");
+        Node en1, en2, en3, sn1, sn2, start;
 
-        Node storyNode1 = createNode(NodeType.StoryNode, "Story 1 ...", "Ende 1", "Ende 2", "Ende 3", "Ende 4", n1, n2, n3, n4);
+        en1 = createNode("End Node 1");
+        en2 = createNode("End Node 2");
+        en3 = createNode("End Node 3");
 
-        Node start = createNode(NodeType.StoryNode, "Willkommen zu unserem Spiel", "Story 1", "Ende 2", "Ende 3", "Ende 4", storyNode1, n2, n3, n4);
+        sn1 = createNode(NodeType.StoryNode, "Story Node 1", "Ende 1", "Ende 1", "Ende 2", "Ende 3", en1, en1, en2, en3);
+        sn2 = createNode(NodeType.StoryNode, "Story Node 2", "Ende 3", "Ende 3", "Ende 1", "Ende 2", en3, en3, en1, en2);
+
+        start = createNode(NodeType.StoryNode, "Start Node", "Ende 1", "Story Node 1", "Story Node 2", "Ende 3", en1, sn1, sn2, en3);
 
         control.setActiveNode(start);
     }
@@ -64,18 +66,10 @@ public class NodeGenerator {
         return n;
     }
 
-    public Node createNode(NodeType type, String nodeText)
+    public Node createNode(String nodeText)
     {
-        Node n;
+        Node n = new EndNode(nodeText, control);
 
-        switch(type)
-        {
-            case EndNode:
-                n = new EndNode(nodeText, control);
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + type);
-        }
 
         return n;
     }
