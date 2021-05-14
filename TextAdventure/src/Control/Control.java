@@ -30,6 +30,14 @@ public class Control {
         gui.setButtonText(index, text);
     }
 
+    public void gameEnd()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            gui.hideButtons(i);
+        }
+    }
+
     public void setOutputText(String text)
     {
         gui.setOutputText(text);

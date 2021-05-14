@@ -85,6 +85,11 @@ public class GUI extends JFrame {
         buttons[index].setText(text);
     }
 
+    public void hideButtons(int index)
+    {
+        buttons[index].setVisible(false);
+    }
+
     public void setOutputText(String text)
     {
         outputField.setText(text);
