@@ -1,10 +1,15 @@
 package Control;
 
+import java.util.concurrent.Callable;
+
 public class ActionNode extends Node {
 
-    public ActionNode(Edge[] edges, String text, Control control) {
+    private Runnable run;
+
+    public ActionNode(Edge[] edges, String text, Control control, Runnable run) {
 
         super(edges, text, control);
+        this.run = run;
     }
 
     @Override
@@ -15,5 +20,8 @@ public class ActionNode extends Node {
         {
             e.onEnable();
         }
+        run.run();
+
     }
+
 }
