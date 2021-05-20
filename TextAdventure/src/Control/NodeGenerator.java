@@ -14,22 +14,9 @@ public class NodeGenerator {
         onStart();
     }
 
-    public void runPong()
-    {
-        Game game = new Game();
-        game.start();
-
-        Timer t = new Timer();
-        TimerTask tt = new TimerTask() {
-            @Override
-            public void run() {
-                game.update();
-            }
-        };
-        t.scheduleAtFixedRate(tt, 1, 2);
-    }
-
     private void onStart() {
+        Runnables runnables = new Runnables();
+
         Node en1, en2, en3, sn1, sn2, start;
 
         en1 = createNode("End Node 1");
@@ -37,7 +24,7 @@ public class NodeGenerator {
         en3 = createNode("End Node 3");
 
         sn1 = createNode("Story Node 1", "Ende 1", "Ende 1", "Ende 2", "Ende 3", en1, en1, en2, en3);
-        sn2 = createNode("Pong", "Ende 3", "Ende 3", "Ende 1", "Ende 2", en3, en3, en1, en2, this::runPong);
+        sn2 = createNode("Pong", "Ende 3", "Ende 3", "Ende 1", "Ende 2", en3, en3, en1, en2, runnables::runPong);
 
         start = createNode("Start Node", "Ende 1", "Story Node 1", "Pong", "Ende 3", en1, sn1, sn2, en3);
 
