@@ -36,6 +36,7 @@ public class Control {
         {
             gui.hideButtons(i);
         }
+
     }
 
     public void setOutputText(String text)

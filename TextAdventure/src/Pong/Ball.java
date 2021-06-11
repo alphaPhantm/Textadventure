@@ -6,7 +6,7 @@ public class Ball
     private byte direction; //0 = right top, 1 = right bot || 2 = left top, 3 = left bot
 
     public static int ballWidth = 10;
-    public static int ballSlower = 5;
+    public static int ballSlower = 1;
 
     {
         posX = posY = 300;
