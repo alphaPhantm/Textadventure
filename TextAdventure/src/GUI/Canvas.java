@@ -11,30 +11,41 @@ import java.util.List;
 public class Canvas extends JPanel {
 
     private Graphics2D g2d;
-    private List<Movable> movables = new ArrayList<>();
-    private List<DrawType> drawTypes = new ArrayList<>();
+    private List<Movable> movableList = new ArrayList<>();
 
     @Override
     public void paintComponent(Graphics g)
     {
         g2d = (Graphics2D) g;
 
-        for(int i = 0; i < movables.size(); i++)
+        for(Movable m : movableList)
         {
-            Movable m = movables.get(i);
-
-            switch(drawTypes.get(i))
+            switch(m.drawType)
             {
                 case RectFilled:
-                    g2d.fillRect(m.position.x - m.scale.x / 2, m.position.y - m.scale.y, m.scale.x, m.scale.y);
+                    g2d.fillRect(m.position.x - m.scale.x / 2, m.position.y - m.scale.y / 2, m.scale.x, m.scale.y);
+                    break;
+                case RectOutlined:
+                    g2d.drawRect(m.position.x - m.scale.x / 2, m.position.y - m.scale.y / 2, m.scale.x, m.scale.y);
                     break;
             }
         }
+
+        repaint();
     }
 
-    public void paintComponent(Movable object, DrawType drawType)
+    public void addMovable(Movable m)
     {
-        movables.add(object);
-        drawTypes.add(drawType);
+        movableList.add(m);
+    }
+
+    public void removeMovable(Movable m)
+    {
+        movableList.remove(m);
+    }
+
+    public void removeMovable(int index)
+    {
+        removeMovable(index);
     }
 }
