@@ -64,7 +64,7 @@ public class TicTacToe
      */
     private Vector2 positionToCell(Vector2 position)
     {
-        return new Vector2(position.x / (window.width / 3), position.y  / (window.height / 3));
+        return new Vector2((int)(position.x / (window.width / 3)), (int)(position.y  / (window.height / 3)));
     }
 
     /**
