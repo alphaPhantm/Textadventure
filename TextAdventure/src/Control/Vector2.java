@@ -2,15 +2,15 @@ package Control;
 
 public class Vector2 {
 
-    public int x, y;
+    public float x, y;
 
-    public Vector2(int x, int y)
+    public Vector2(float x, float y)
     {
         this.x = x;
         this.y = y;
     }
 
-    public Vector2 multiply(int scalar)
+    public Vector2 multiply(float scalar)
     {
         return new Vector2(x * scalar, y * scalar);
     }
@@ -18,6 +18,12 @@ public class Vector2 {
     public Vector2 add(Vector2 vector)
     {
         return new Vector2(x + vector.x, y + vector.y);
+    }
+
+    @Override
+    public String toString()
+    {
+        return x + " " + y;
     }
 
 }

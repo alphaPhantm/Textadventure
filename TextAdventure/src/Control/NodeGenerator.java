@@ -1,5 +1,8 @@
 package Control;
 
+import GUI.GameWindow;
+import Games.TicTacToe;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -21,11 +24,11 @@ public class NodeGenerator {
         en3 = createNode("End Node 3");
 
         sn1 = createNode("Story Node 1", "Ende 1", "Ende 1", "Ende 2", "Ende 3", en1, en1, en2, en3);
-        sn2 = createNode("Pong", "Ende 3", "Ende 3", "Ende 1", "Ende 2", en3, en3, en1, en2, new Runnable() {
+        sn2 = createNode("Tic Tac Toe", "Ende 3", "Ende 3", "Ende 1", "Ende 2", en3, en3, en1, en2, new Runnable() {
             @Override
             public void run()
             {
-                //create code here
+                TicTacToe ticTacToe = new TicTacToe(control);
             }
         });
 

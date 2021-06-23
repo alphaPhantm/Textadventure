@@ -1,7 +1,5 @@
 package Control;
 
-import Pong.Game;
-
 import java.util.Timer;
 import java.util.TimerTask;
 

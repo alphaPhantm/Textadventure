@@ -2,5 +2,5 @@ package Control;
 
 public enum DrawType {
 
-    RectFilled, RectOutlined
+    RectFilled, RectOutlined, Circle, Cross
 }
