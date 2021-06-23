@@ -153,7 +153,7 @@ public class TicTacToe
                 return true;
             }
             //check columns
-            if(cells[i][0] == cells[i][1] && cells[i][1] == cells[2][i] && cells[i][0] != 2)
+            if(cells[i][0] == cells[i][1] && cells[i][1] == cells[i][2] && cells[i][0] != 2)
             {
                 return true;
             }
