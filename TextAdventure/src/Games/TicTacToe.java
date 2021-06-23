@@ -62,7 +62,6 @@ public class TicTacToe
      * @param position
      * @return Vector2 with cell position
      */
-
     private Vector2 positionToCell(Vector2 position)
     {
         return new Vector2(position.x / (window.width / 3), position.y  / (window.height / 3));
@@ -75,7 +74,7 @@ public class TicTacToe
      */
     private Vector2 cellToPosition(Vector2 cell)
     {
-        //save the cellSize to not calculate each time
+        //save the cellSize once
         float cellSize = window.width / 3;
 
         return new Vector2(cell.x, cell.y).multiply(cellSize).add(new Vector2(cellSize / 2, cellSize / 2));

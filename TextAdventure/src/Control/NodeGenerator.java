@@ -32,7 +32,7 @@ public class NodeGenerator {
             }
         });
 
-        start = createNode("Start Node", "Ende 1", "Story Node 1", "Pong", "Ende 3", en1, sn1, sn2, en3);
+        start = createNode("Start Node", "Ende 1", "Story Node 1", "Tic Tac Toe", "Ende 3", en1, sn1, sn2, en3);
 
         control.setActiveNode(start);
     }
