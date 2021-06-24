@@ -15,6 +15,7 @@ public class ActionNode extends Node {
     @Override
     public void onEnter()
     {
+        control.exitInfo();
         control.setOutputText(text);
         for(Edge e : edges)
         {

@@ -16,7 +16,7 @@ public class EndNode extends Node{
         {
             control.setButtonText(i, "");
         }
-//
+
         control.gameEnd();
     }
 }

@@ -1,8 +1,8 @@
 package Control;
 
-public class StoryNode extends Node {
+public class InformationNode extends Node {
 
-    public StoryNode(Edge[] edges, String text, Control control) {
+    public InformationNode(Edge[] edges, String text, Control control) {
 
         super(edges, text, control);
     }
@@ -10,11 +10,11 @@ public class StoryNode extends Node {
     @Override
     public void onEnter()
     {
-        control.exitInfo();
         control.setOutputText(text);
         for(Edge e : edges)
         {
             e.onEnable();
         }
+        control.initInfo();
     }
 }

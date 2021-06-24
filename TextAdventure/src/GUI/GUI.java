@@ -11,6 +11,7 @@ public class GUI extends JFrame {
 
     private JTextArea outputField;
     private JButton buttons[] = new JButton[4];
+    private JButton infoButton = new JButton();
 
     public GUI(Control control)
     {
@@ -70,6 +71,22 @@ public class GUI extends JFrame {
         });
         add(buttons[3]);
 
+
+        infoButton = new JButton();
+        infoButton.setBounds(10, 380, 750, 170);
+        infoButton.setContentAreaFilled(false);
+        infoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                control.activateEdge(0);
+            }
+        });
+        add(infoButton);
+
+
+
+
+
         outputField = new JTextArea();
         outputField.setBounds(10, 10, 765, 350);
         outputField.setLineWrap(true);
@@ -90,8 +107,27 @@ public class GUI extends JFrame {
         buttons[index].setVisible(false);
     }
 
+    public void showButtons(int index)
+    {
+        buttons[index].setVisible(false);
+    }
+
     public void setOutputText(String text)
     {
         outputField.setText(text);
+    }
+
+    public void initInfo(){
+        infoButton.setVisible(true);
+        for (int i = 0; i < 4; i++) {
+            buttons[i].setVisible(false);
+        }
+    }
+
+    public void exitInfo(){
+        infoButton.setVisible(false);
+        for (int i = 0; i < 4; i++) {
+            buttons[i].setVisible(true);
+        }
     }
 }
