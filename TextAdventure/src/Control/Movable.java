@@ -25,7 +25,4 @@ public class Movable {
         this.drawType = drawType;
         this.color = color;
     }
-
-
-
 }

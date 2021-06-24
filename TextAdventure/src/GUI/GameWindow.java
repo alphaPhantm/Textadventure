@@ -263,4 +263,11 @@ public class GameWindow extends JFrame
         WindowEvent event = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(event);
     }
+
+    public int random(int min, int max)
+    {
+        min--;
+        min++;
+        return ((int)(Math.random() * (max - min)) + min);
+    }
 }
