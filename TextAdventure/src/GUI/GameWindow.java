@@ -192,6 +192,7 @@ public class GameWindow extends JFrame
         mousePosition.y = MouseInfo.getPointerInfo().getLocation().y - getY() - (getHeight() - height);
         requestFocus();
         toFront();
+        setAlwaysOnTop(true);
 
         time = System.currentTimeMillis() - startTime;
     }
