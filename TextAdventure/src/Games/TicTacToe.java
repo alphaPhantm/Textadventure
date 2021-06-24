@@ -127,7 +127,7 @@ public class TicTacToe
                 if (checkForWin(cells))
                 {
                     //display the winner and close the game window
-                    control.setOutputText("Player " + player + " won the game !");
+                    control.setOutputText("Du hast Gewonnen. Überlege deinen Nächsten Zug.");
                     window.close();
 
                 }
@@ -157,7 +157,7 @@ public class TicTacToe
             //check if any win is recognized
             if(checkForWin(cells))
             {
-                control.setOutputText("Player " + player + " won the game !");
+                control.activateEdge(3);
                 window.close();
 
             }
@@ -176,7 +176,7 @@ public class TicTacToe
         if (areCellsFull())
         {
             //display message "no winner !" and end the game
-            control.setOutputText("No winner !");
+            control.setOutputText("Du hast ein Unentschieden Heraufbeschworen. Du darfst Leben. Überlege deinen Nächsten Zug.");
             window.close();
         }
     }
