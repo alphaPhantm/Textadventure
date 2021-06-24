@@ -17,7 +17,7 @@ public class NodeGenerator {
 
     private void onStart() {
 
-        Node en1, en2, en3, sn1, sn2, start;
+        Node en1, en2, en3, sn1, sn2, start, information;
 
         en1 = createNode("End Node 1");
         en2 = createNode("End Node 2");
@@ -33,8 +33,8 @@ public class NodeGenerator {
         });
 
         start = createNode("Start Node", "Ende 1", "Story Node 1", "Tic Tac Toe", "Ende 3", en1, sn1, sn2, en3);
-
-        control.setActiveNode(start);
+        information = createNode("Hallo ich bin eine Information", "Weiter", start);
+        control.setActiveNode(information);
     }
 
     public Node createNode(String nodeText, String edge1Text, String edge2Text, String edge3Text, String edge4Text, Node pointing1, Node pointing2, Node pointing3, Node pointing4) {
@@ -95,6 +95,26 @@ public class NodeGenerator {
     public Node createNode(String nodeText) {
         Node n = new EndNode(nodeText, control);
 
+
+        return n;
+    }
+
+    public Node createNode(String nodeText, String edge1Text, Node pointing1){
+        Node n;
+        Edge[] edges = new Edge[1];
+
+        Node[] pointingNode = new Node[1];
+        pointingNode[0] = pointing1;
+
+        String[] edgeText = new String[1];
+        edgeText[0] = edge1Text;
+
+        for (int i = 0; i < 1; i++) {
+            edges[i] = new Edge(pointingNode[i], edgeText[i], control, i);
+        }
+
+
+        n = new InformationNode(edges, nodeText, control);
 
         return n;
     }

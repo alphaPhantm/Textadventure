@@ -8,39 +8,40 @@ public class Control {
     private NodeGenerator nodeGenerator;
     private Node activeNode = null;
 
-    public Control()
-    {
+    public Control() {
         gui = new GUI(this);
         nodeGenerator = new NodeGenerator(this);
     }
 
-    public void activateEdge(int index)
-    {
+    public void activateEdge(int index) {
         activeNode.edges[index].activate();
     }
 
-    public void setActiveNode(Node node)
-    {
+    public void setActiveNode(Node node) {
         activeNode = node;
         activeNode.onEnter();
     }
 
-    public void setButtonText(int index, String text)
-    {
+    public void setButtonText(int index, String text) {
         gui.setButtonText(index, text);
     }
 
-    public void gameEnd()
-    {
-        for (int i = 0; i < 4; i++)
-        {
+    public void gameEnd() {
+        for (int i = 0; i < 4; i++) {
             gui.hideButtons(i);
         }
 
     }
 
-    public void setOutputText(String text)
-    {
+    public void initInfo() {
+        gui.initInfo();
+    }
+
+    public void exitInfo(){
+        gui.exitInfo();
+    }
+
+    public void setOutputText(String text) {
         gui.setOutputText(text);
     }
 }
