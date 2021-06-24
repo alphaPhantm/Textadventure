@@ -99,8 +99,8 @@ public class GameWindow extends JFrame
     private void update()
     {
         //get the current mouse position in relation to the frame
-        mousePosition.x = MouseInfo.getPointerInfo().getLocation().x - getX();
-        mousePosition.y = MouseInfo.getPointerInfo().getLocation().y - getY();
+        mousePosition.x = MouseInfo.getPointerInfo().getLocation().x - getX() - (getWidth() - width);
+        mousePosition.y = MouseInfo.getPointerInfo().getLocation().y - getY() - (getHeight() - height);
     }
 
     /**
