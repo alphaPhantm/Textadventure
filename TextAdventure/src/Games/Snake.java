@@ -11,6 +11,7 @@ import java.util.TimerTask;
 
 /**
  * @author Jonas Braus, Noah Kessinger
+ * this class represtents the snake game
  */
 public class Snake
 {
@@ -25,6 +26,10 @@ public class Snake
     private Movable text;
     private int length = 1;
 
+    /**
+     * the constructor for snake game
+     * @param control
+     */
     public Snake(Control control)
     {
         window = new GameWindow(new Vector2(800, 800), "Snake");
@@ -44,6 +49,7 @@ public class Snake
         width--;
         height--;
 
+        //calculate random default direction for the snake
         int randX = window.random(-1, 1);
         int randY = 0;
         if (randX == 0)
@@ -54,6 +60,7 @@ public class Snake
         moveDirection = new Vector2(randX, randY);
         timeStep = window.time;
 
+        //add all the movables to the renderer
         addPart(cellToPosition(new Vector2(window.random(10, width - 10), window.random(10, height - 10))));
         apple = new Movable(cellToPosition(new Vector2(window.random(5, width - 5), window.random(5, height - 5))), new Vector2(cellSize - 1, cellSize - 1), DrawType.RectFilled, Color.red);
         window.addMovable(apple);
@@ -63,6 +70,7 @@ public class Snake
 
         lastPosition = new Vector2(player.get(0).position.x, player.get(0).position.y);
 
+        //start the update loop
         Timer t = new Timer();
         TimerTask tt = new TimerTask()
         {
@@ -76,8 +84,12 @@ public class Snake
         t.scheduleAtFixedRate(tt, 1, 1);
     }
 
+    /**
+     * function that updates the game
+     */
     private void update()
     {
+        //change direction according to user input - you can not move in same axis the snake is already moving
         if (window.isKeyPressed(KeyCode.W) && moveDirection.y == 0)
         {
             moveDirection = new Vector2(0, -1);
@@ -92,6 +104,7 @@ public class Snake
             moveDirection = new Vector2(1, 0);
         }
 
+        //make the snake move every 200 milliseconds
         if (window.time - timeStep > 200)
         {
             move(moveDirection);
@@ -105,7 +118,9 @@ public class Snake
         }
     }
 
-
+    /**
+     * function to check if the snake can eat an apple --> increase the snakes length and replace the apple
+     */
     private void checkApple()
     {
         if (player.get(0).position.x == apple.position.x && player.get(0).position.y == apple.position.y)
@@ -122,14 +137,20 @@ public class Snake
         }
     }
 
+    /**
+     * move the snake and all its parts in the given direction
+     * @param direction
+     */
     private void move(Vector2 direction)
     {
         Vector2 mov = new Vector2(direction.x, direction.y);
         mov.multiply(cellSize);
         player.get(0).position.add(mov);
 
+        //move all the parts when there are more then 1
         if (player.size() > 1)
         {
+            //move all the parts forward
             for (int i = player.size() - 1; i > 1; i--)
             {
                 player.get(i).position = new Vector2(player.get(i - 1).position.x, player.get(i - 1).position.y);
@@ -149,6 +170,10 @@ public class Snake
         lastPosition = new Vector2(player.get(0).position.x, player.get(0).position.y);
     }
 
+    /**
+     * function to add the default part of the snake
+     * @param position
+     */
     private void addPart(Vector2 position)
     {
         Movable tempMov = new Movable(position, new Vector2(cellSize - 1, cellSize - 1), DrawType.RectFilled, new Color(28, 255, 32));
@@ -156,11 +181,12 @@ public class Snake
         window.addMovable(tempMov);
     }
 
-    private Vector2 positionToCell(Vector2 position)
-    {
-        return new Vector2((int) (position.x / cellSize), (int) (position.y / cellSize));
-    }
 
+    /**
+     * function that converts a cell position to a position on screen
+     * @param cell
+     * @return
+     */
     private Vector2 cellToPosition(Vector2 cell)
     {
         Vector2 output = new Vector2(cell.x, cell.y);
