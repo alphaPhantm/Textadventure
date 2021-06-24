@@ -22,6 +22,13 @@ public class Vector2 {
         y += vector.y;
     }
 
+    public void normalize()
+    {
+        double magnitude = Math.sqrt(x * x + y * y);
+        x /= magnitude;
+        y /= magnitude;
+    }
+
     @Override
     public String toString()
     {
