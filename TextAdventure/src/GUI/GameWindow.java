@@ -41,6 +41,7 @@ public class GameWindow extends JFrame
         setLocationRelativeTo(null);
         setTitle(title);
         setVisible(true);
+        setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
         //create a canvas object
         canvas = new Canvas();
@@ -189,6 +190,8 @@ public class GameWindow extends JFrame
         //get the current mouse position in relation to the frame
         mousePosition.x = MouseInfo.getPointerInfo().getLocation().x - getX() - (getWidth() - width);
         mousePosition.y = MouseInfo.getPointerInfo().getLocation().y - getY() - (getHeight() - height);
+        requestFocus();
+        toFront();
 
         time = System.currentTimeMillis() - startTime;
     }
