@@ -54,6 +54,7 @@ public class Pong {
 
         velocity = 1;
         direction = new Vector2(window.randomNo0(-1, 1), window.randomNo0(-1, 1));
+        
 
 
         scorePlayer1 = new Movable(new Vector2(window.width / 2 - 60, 30), DrawType.Text, Color.GRAY, scorePlayer1int + "");
@@ -87,21 +88,27 @@ public class Pong {
                     }
                 }
 
+                
+
                 scorePlayer1.text = scorePlayer1int + "";
                 scorePlayer2.text = scorePlayer2int + "";
                 ball.position.add(direction);
 
-                if (ball.position.x > player2.position.x){
-                    direction = new Vector2(window.randomNo0(-1, 0), window.randomNo0(-1, 1));
-                    ball.position = new Vector2(window.width / 2, window.height / 2);
-                    scorePlayer1int ++;
-
-                }
-                if (ball.position.x < player1.position.x){
+                if(ball.position.x < 0 + ball.scale.x / 2){
                     direction = new Vector2(window.randomNo0(0, 1), window.randomNo0(-1, 1));
                     ball.position = new Vector2(window.width, window.height);
-                    scorePlayer2int ++;
+                    scorePlayer2int++;
+                    scorePlayer1int--;
+
                 }
+
+                if (ball.position.x > window.width - ball.scale.x / 2){
+                    direction = new Vector2(window.randomNo0(-1, 0), window.randomNo0(-1, 1));
+                    ball.position = new Vector2(window.width / 2, window.height / 2);
+                    scorePlayer1int++;
+
+                }
+
 
                 if (ball.position.y > window.height - (ball.scale.y /2)){
                     direction = new Vector2(window.randomNo0(-1, 1), window.randomNo0(-1, 0));
@@ -113,10 +120,12 @@ public class Pong {
 
                 if (ball.position.x - (ball.scale.x / 2) == player1.position.x + (player1.scale.x / 2) && ((ball.position.y + (ball.scale.y / 2) > player1.position.y - (player1.scale.y / 2) && ball.position.y + (ball.scale.y / 2) < player1.position.y + (player1.scale.y / 2)) || (ball.position.y - (ball.scale.y / 2) < player1.position.y + (player1.scale.y / 2) && ball.position.y - (ball.scale.y / 2) > player1.position.y - (player1.scale.y / 2)))){
                     direction = new Vector2(window.randomNo0(0, 1), window.randomNo0(-1, 1));
+                    
                 }
 
                 if (ball.position.x + (ball.scale.x / 2) == player2.position.x - (player1.scale.x / 2) && ((ball.position.y + (ball.scale.y / 2) > player2.position.y - (player2.scale.y / 2) && ball.position.y + (ball.scale.y / 2) < player2.position.y + (player2.scale.y / 2)) || (ball.position.y - (ball.scale.y / 2) < player2.position.y + (player2.scale.y / 2) && ball.position.y - (ball.scale.y / 2) > player2.position.y - (player2.scale.y / 2)))){
                     direction = new Vector2(window.randomNo0(-1, 0), window.randomNo0(-1, 1));
+                    
                 }
 
 
@@ -126,7 +135,7 @@ public class Pong {
                 if (ball.position.x > (window.width / 2) && player2.position.y > ball.position.y){
                     player2.position.y -= 0.5;
                 }
-                //Test
+
 
 
 
