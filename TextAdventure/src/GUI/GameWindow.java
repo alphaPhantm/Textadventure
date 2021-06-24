@@ -23,6 +23,7 @@ public class GameWindow extends JFrame
     public Vector2 mousePosition = new Vector2(0, 0);
     public float width;
     public float height;
+    public float time;
 
     private boolean keyW, keyS, keyA, keyD, keyUp, keyDown, keyLeft, keyRight, keySpace;
 
@@ -187,6 +188,8 @@ public class GameWindow extends JFrame
         //get the current mouse position in relation to the frame
         mousePosition.x = MouseInfo.getPointerInfo().getLocation().x - getX() - (getWidth() - width);
         mousePosition.y = MouseInfo.getPointerInfo().getLocation().y - getY() - (getHeight() - height);
+
+        time = System.currentTimeMillis();
     }
 
     /**

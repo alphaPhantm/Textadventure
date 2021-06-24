@@ -127,10 +127,14 @@ public class TicTacToe
                     control.setOutputText("Player " + player + " won the game !");
                     WindowEvent event = new WindowEvent(window, WindowEvent.WINDOW_CLOSING);
                     Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(event);
-                    player = 2;
+
                 }
                 //it is the other players turn
                 player = 1;
+                if(checkForWin(cells))
+                {
+                    player = 2;
+                }
 
             }
 
@@ -147,10 +151,15 @@ public class TicTacToe
                 control.setOutputText("Player " + player + " won the game !");
                 WindowEvent event = new WindowEvent(window, WindowEvent.WINDOW_CLOSING);
                 Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(event);
-                player = 2;
+
             }
 
             player = 0;
+
+            if(checkForWin(cells))
+            {
+                player = 2;
+            }
         }
 
 
