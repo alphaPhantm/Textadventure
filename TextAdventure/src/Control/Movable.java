@@ -3,6 +3,9 @@ package Control;
 
 import java.awt.*;
 
+/**
+ * @author Jonas Braus, Noah Kessinger
+ */
 public class Movable {
 
     public Vector2 position;

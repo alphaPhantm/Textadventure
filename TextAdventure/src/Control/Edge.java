@@ -1,5 +1,8 @@
 package Control;
 
+/**
+ * @author Jonas Braus, Noah Kessinger
+ */
 public class Edge {
 
     public Node pointing;

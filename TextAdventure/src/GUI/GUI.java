@@ -7,6 +7,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
+/**
+ * @author Jonas Braus, Noah Kessinger
+ */
 public class GUI extends JFrame {
 
     private JTextArea outputField;

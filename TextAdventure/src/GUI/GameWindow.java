@@ -12,6 +12,7 @@ import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * @author Jonas Braus, Noah Kessinger
  * This class is an extension of the JFrame especially for little mini games
  */
 public class GameWindow extends JFrame

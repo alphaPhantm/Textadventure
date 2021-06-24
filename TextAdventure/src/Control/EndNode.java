@@ -1,5 +1,8 @@
 package Control;
 
+/**
+ * @author Jonas Braus, Noah Kessinger
+ */
 public class EndNode extends Node{
 
     public EndNode(String text, Control control) {

@@ -8,6 +8,9 @@ import Games.TicTacToe;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * @author Jonas Braus, Noah Kessinger
+ */
 public class NodeGenerator {
 
     private Control control;

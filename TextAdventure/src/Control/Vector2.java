@@ -1,5 +1,8 @@
 package Control;
 
+/**
+ * @author Jonas Braus, Noah Kessinger
+ */
 public class Vector2 {
 
     public float x, y;

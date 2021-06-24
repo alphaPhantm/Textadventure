@@ -20,7 +20,9 @@ import java.util.TimerTask;
 
 import static java.lang.System.exit;
 
-
+/**
+ * @author Noah Kessinger
+ */
 public class Pong {
 
     private GameWindow window;

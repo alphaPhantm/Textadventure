@@ -2,6 +2,9 @@ package Control;
 
 import GUI.GUI;
 
+/**
+ * @author Jonas Braus, Noah Kessinger
+ */
 public class Control {
 
     private GUI gui;

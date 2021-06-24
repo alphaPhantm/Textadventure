@@ -1,5 +1,8 @@
 package Control;
 
+/**
+ * @author Jonas Braus, Noah Kessinger
+ */
 public class InformationNode extends Node {
 
     public InformationNode(Edge[] edges, String text, Control control) {

@@ -2,6 +2,9 @@ package Control;
 
 import java.util.concurrent.Callable;
 
+/**
+ * @author Jonas Braus, Noah Kessinger
+ */
 public class ActionNode extends Node {
 
     private Runnable run;

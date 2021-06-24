@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * @author Jonas Braus, Noah Kessinger
  * An extension of the JPanel that holds movable objects in a list, and draws them on the screen
  */
 public class Canvas extends JPanel {

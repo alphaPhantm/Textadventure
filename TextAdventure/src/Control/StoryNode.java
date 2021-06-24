@@ -1,5 +1,8 @@
 package Control;
 
+/**
+ * @author Jonas Braus, Noah Kessinger
+ */
 public class StoryNode extends Node {
 
     public StoryNode(Edge[] edges, String text, Control control) {

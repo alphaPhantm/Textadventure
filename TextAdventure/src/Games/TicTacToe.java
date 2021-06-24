@@ -13,6 +13,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
+ * @author Jonas Braus
  * A class that implements the functionality for a simple 3x3 tic tac toe game
  * Only works with Control.Vector2 & GUI.GameWindow & (Control.Control)
  */
