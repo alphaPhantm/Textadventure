@@ -25,8 +25,7 @@ public class Pong {
 
     private GameWindow window;
     private Control control;
-    private Movable player1, player2, ball, baseline;
-    private JTextField scorePlayer1, scorePlayer2;
+    private Movable player1, player2, ball, baseline, scorePlayer1, scorePlayer2;
 
     private int velocity;
     private Vector2 direction;
@@ -57,21 +56,13 @@ public class Pong {
         direction = new Vector2(window.randomNo0(-1, 1), window.randomNo0(-1, 1));
 
 
+        scorePlayer1 = new Movable(new Vector2(window.width / 2 - 60, 30), DrawType.Text, Color.GRAY, scorePlayer1int + "");
+        scorePlayer2 = new Movable(new Vector2(window.width / 2 + 60, 30), DrawType.Text, Color.GRAY, scorePlayer2int + "");
 
-        scorePlayer1 = new JTextField();
-        scorePlayer1.setBounds(30, 30, 30, 30);
-        scorePlayer1.setEditable(false);
-        scorePlayer1.setText(scorePlayer1int + "");
 
-        scorePlayer2 = new JTextField();
-        scorePlayer2.setBounds( 500, 30, 30, 30);
-        scorePlayer2.setEditable(false);
-        scorePlayer2.setText(scorePlayer2int + "");
 
-        window.setLayout(null);
-
-        window.add(scorePlayer1);
-        window.add(scorePlayer2);
+        window.addMovable(scorePlayer1);
+        window.addMovable(scorePlayer2);
         window.addMovable(baseline);
         window.addMovable(player1);
         window.addMovable(player2);

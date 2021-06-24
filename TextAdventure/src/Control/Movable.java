@@ -9,6 +9,7 @@ public class Movable {
     public Vector2 scale;
     public DrawType drawType;
     public Color color;
+    public String text;
 
     public Movable(Vector2 position, Vector2 scale, DrawType drawType, Color color)
     {
@@ -16,6 +17,7 @@ public class Movable {
         this.scale = scale;
         this.drawType = drawType;
         this.color = color;
+        this.text = "";
     }
 
     public Movable(Vector2 position, DrawType drawType, Color color)
@@ -24,5 +26,15 @@ public class Movable {
         this.scale = new Vector2(1, 1);
         this.drawType = drawType;
         this.color = color;
+        this.text = "";
+    }
+
+    public Movable(Vector2 position, DrawType drawType, Color color, String text)
+    {
+        this.position = position;
+        this.scale = new Vector2(1, 1);
+        this.drawType = drawType;
+        this.color = color;
+        this.text = text;
     }
 }

@@ -50,6 +50,9 @@ public class Canvas extends JPanel {
                     g2d.drawLine((int)(m.position.x - m.scale.x / 2), (int)(m.position.y - m.scale.y / 2), (int)(m.position.x + m.scale.x / 2), (int)(m.position.y + m.scale.y / 2));
                     g2d.drawLine((int)(m.position.x - m.scale.x / 2), (int)(m.position.y + m.scale.y / 2), (int)(m.position.x + m.scale.x / 2), (int)(m.position.y - m.scale.y / 2));
                     break;
+                case Text:
+                    g2d.drawString(m.text, m.position.x, m.position.y);
+                    break;
             }
         }
 
