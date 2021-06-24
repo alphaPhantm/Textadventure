@@ -85,8 +85,6 @@ public class TicTacToe
      */
     private void update()
     {
-        System.out.println(window.mousePosition);
-
         //check if left click is performed
         if (window.isMousePressed)
         {
