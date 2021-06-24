@@ -5,11 +5,10 @@ import Control.DrawType;
 import Control.Movable;
 import Control.Vector2;
 import GUI.GameWindow;
+import Control.KeyCode;
 
 import java.awt.*;
 import java.awt.event.WindowEvent;
-import java.util.ArrayList;
-import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -24,7 +23,7 @@ public class TicTacToe
     private int[][] cells = {{2, 2, 2}, {2, 2, 2}, {2, 2, 2}}; //array that stores if the cells are free, should store cell values later
     private Control control;
     private Vector2 bestCellAI = new Vector2(0, 0);
-
+    private float delayTime;
 
     /**
      * Constructor
@@ -51,6 +50,8 @@ public class TicTacToe
         //select a random player to begin
         player = (int)(Math.random() * 2);
         System.out.println(player);
+
+        delayTime = window.time;
 
         //start updating the game
         Timer t = new Timer();
@@ -136,9 +137,11 @@ public class TicTacToe
                     player = 2;
                 }
 
+                delayTime = window.time;
+
             }
 
-        } else if (player == 1)
+        } else if (player == 1 && window.time - delayTime > 5)
         {
             Vector2 cellPosition = nextCellPosition();
             int cellX = (int)cellPosition.x;
@@ -160,6 +163,8 @@ public class TicTacToe
             {
                 player = 2;
             }
+
+            delayTime = window.time;
         }
 
 

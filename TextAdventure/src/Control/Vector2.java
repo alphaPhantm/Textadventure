@@ -10,14 +10,16 @@ public class Vector2 {
         this.y = y;
     }
 
-    public Vector2 multiply(float scalar)
+    public void multiply(float scalar)
     {
-        return new Vector2(x * scalar, y * scalar);
+       x *= scalar;
+       y *= scalar;
     }
 
-    public Vector2 add(Vector2 vector)
+    public void add(Vector2 vector)
     {
-        return new Vector2(x + vector.x, y + vector.y);
+        x += vector.x;
+        y += vector.y;
     }
 
     @Override
