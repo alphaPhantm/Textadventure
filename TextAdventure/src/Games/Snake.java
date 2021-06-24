@@ -25,7 +25,6 @@ public class Snake
     private Movable text;
     private int length = 1;
 
-
     public Snake(Control control)
     {
         window = new GameWindow(new Vector2(800, 800), "Snake");
