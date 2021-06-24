@@ -1,6 +1,7 @@
 package Control;
 
 /**
+ * An Enum, that stores several keycodes
  * @author Jonas Braus, Noah Kessinger
  */
 public enum KeyCode

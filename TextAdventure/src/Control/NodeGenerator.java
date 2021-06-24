@@ -22,7 +22,7 @@ public class NodeGenerator {
 
     private void onStart() {
 
-        Node en1, en2, en3, sn1, sn2, sn3, start, information, capter1_1, capter1_2, capter1_3;
+        Node en1, en2, en3, sn1, sn2, sn3, start, information;
 
         en1 = createNode("End Node 1");
         en2 = createNode("End Node 2");
@@ -44,28 +44,8 @@ public class NodeGenerator {
             }
         });
 
-        capter1_3 = createNode("König: „Krieger, bestimmt kannst du dir denken, dass ich dich nicht nur einlud, um mit mir am Tisch zu essen und Gespräche über Gott und die Welt zu führen. Ich habe einen Auftrag für dich, du bist der beste Krieger des Königreiches Raavensteens, du musst unserem Volk helfen, denn eine Bedrohung macht sich breit. Der Lord des Todes selbst, der Lord von Dunkelheit und Hass, ja er macht sich auf den Weg jedes unserer Königreiche weit und breit zu zerstören. Ohne deine Hilfe, ja das kannst du mir glauben, ohne deine Hilfe werden wir sterben. Du musst uns helfen. Was sagst du?“", "Sehr wohl mein Herr, ich der Krieger, werde verteidigen was zu verteidigen ist. Auch wenn ich mit meinem Tod bezahlen muss, ich werde unser Volk beschützen.", en1);
-
-
-        capter1_2 = createNode("capter1_1 = createNode(\"Kapitel I – Eine schwere Entscheidung\\n\" +\n" +
-                "                \"Es ist ein lauwarmer Herbsttag, Kinder spielen draußen, Frauen backen Brote, der Duft fliegt herrlich schmeckend durch die Luft. Wasser läuft dir im Mund zusammen, während du durch die unebenen Straßen gehst. Die Blätter der Bäume verfärben sich in die schönsten Farben um das Schloss von Raavensteen, deine Schritte gehen zielgerichtet auf das Tor zu. Der König lud dich ein mit ihm zu Essen,  allerdings vermutest du, dass das wohl nicht der einzige Grund sein mag. Die Wachen winken freundlich und bitten dich einzutreten. Das Haupttor des Saals öffnet sich und der König läuft dir entgegen, er nimmt dich in den Arm, seine Freude ist riesig. \\n\" +\n" +
-                "                \"König: „Mein Freund, der Krieger, ich freue mich sehr. Komm mit, meine Diener bereiteten bereits das Essen vor, nun lass uns miteinander setzten. “\\n\", \"Weiter\", capter1_2);\n", "Weiter", capter1_3);
-
-
-        capter1_1 = createNode("Kapitel I – Eine schwere Entscheidung\n" +
-                "Es ist ein lauwarmer Herbsttag, Kinder spielen draußen, Frauen backen Brote, der Duft fliegt herrlich schmeckend durch die Luft. Wasser läuft dir im Mund zusammen, während du durch die unebenen Straßen gehst. Die Blätter der Bäume verfärben sich in die schönsten Farben um das Schloss von Raavensteen, deine Schritte gehen zielgerichtet auf das Tor zu. Der König lud dich ein mit ihm zu Essen,  allerdings vermutest du, dass das wohl nicht der einzige Grund sein mag. Die Wachen winken freundlich und bitten dich einzutreten. Das Haupttor des Saals öffnet sich und der König läuft dir entgegen, er nimmt dich in den Arm, seine Freude ist riesig. \n" +
-                "König: „Mein Freund, der Krieger, ich freue mich sehr. Komm mit, meine Diener bereiteten bereits das Essen vor, nun lass uns miteinander setzten. “\n", "Weiter", capter1_2);
-
-
-        information = createNode("Herzlich Willkommen Krieger!\n" +
-                "Du begibst dich auf eine weite Reise in die unbekanntesten, dunkelsten und gefährlichsten Orte dieser Welt. Einfach, dieses Wort solltest du nicht kennen, denn das wird deine Reise nicht sein. Nicht nur deine Muskeln werden eine Verwendung finden, auch Rätsel, welche dein logisches Denkvermögen benötigt, wirst du nutzen müssen. \n" +
-                "Nun begib dich auf die Reise und komme lebendig zurück, denn der Tod lauert hinter jeder Ecke.\n", "Weiter", capter1_1);
-
-
-
-
-
-
+        start = createNode("Start Node", "Pong", "Story Node 1", "Tic Tac Toe", "Ende 3", sn3, sn1, sn2, en3);
+        information = createNode("Hallo ich bin eine Information ", "Weiter", start);
         control.setActiveNode(information);
     }
 
