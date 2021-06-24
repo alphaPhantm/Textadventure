@@ -33,6 +33,7 @@ public class Canvas extends JPanel {
 
             //set the draw color to the color stored in the movable
             g2d.setColor(m.color);
+            g2d.setStroke(new BasicStroke(2.5f));
             switch(m.drawType)
             {
                 //check for the movables shape and draw it

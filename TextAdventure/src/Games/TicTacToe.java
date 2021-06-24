@@ -75,9 +75,17 @@ public class TicTacToe
     private Vector2 cellToPosition(Vector2 cell)
     {
         //save the cellSize once
-        float cellSize = window.width / 3;
+        float cellSizeX = window.width / 3;
+        float cellSizeY = window.height / 3;
 
-        return new Vector2(cell.x, cell.y).multiply(cellSize).add(new Vector2(cellSize / 2, cellSize / 2));
+        Vector2 output = new Vector2(cell.x, cell.y);
+        output.x *= cellSizeX;
+        output.y *= cellSizeY;
+
+        output.x += (cellSizeX / 2);
+        output.y += (cellSizeY / 2);
+
+        return output;
     }
 
     /**
@@ -85,8 +93,6 @@ public class TicTacToe
      */
     private void update()
     {
-        System.out.println(window.mousePosition);
-
         //check if left click is performed
         if (window.isMousePressed)
         {
@@ -138,6 +144,14 @@ public class TicTacToe
                     player = 0;
                 }
             }
+        }
+
+        if(areCellsFull())
+        {
+            //display message "no winner !" and end the game
+            control.setOutputText("No winner !");
+            WindowEvent event = new WindowEvent(window, WindowEvent.WINDOW_CLOSING);
+            Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(event);
         }
     }
 
