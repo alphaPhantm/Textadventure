@@ -19,7 +19,7 @@ public class NodeGenerator {
 
     private void onStart() {
 
-        Node en1, en2, en3, sn1, sn2, start, information;
+        Node en1, en2, en3, sn1, sn2, sn3, start, information;
 
         en1 = createNode("End Node 1");
         en2 = createNode("End Node 2");
@@ -33,8 +33,15 @@ public class NodeGenerator {
                 Snake snake = new Snake(control);
             }
         });
+        sn3 = createNode("Pong", "Ende 3", "Ende 3", "Ende 1", "Ende 2", en3, en3, en1, en2, new Runnable() {
+            @Override
+            public void run()
+            {
+                Pong pong = new Pong(control);
+            }
+        });
 
-        start = createNode("Start Node", "Ende 1", "Story Node 1", "Tic Tac Toe", "Ende 3", en1, sn1, sn2, en3);
+        start = createNode("Start Node", "Pong", "Story Node 1", "Tic Tac Toe", "Ende 3", sn3, sn1, sn2, en3);
         information = createNode("Hallo ich bin eine Information ", "Weiter", start);
         control.setActiveNode(information);
     }
