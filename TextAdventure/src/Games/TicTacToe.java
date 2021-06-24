@@ -142,14 +142,19 @@ public class TicTacToe
 
             }
 
-        } else if (player == 1 && window.time - delayTime > 1000)
+        }
+        //the AI places its cross after delay of 1 second if it is its turn
+        else if (player == 1 && window.time - delayTime > 1000)
         {
             Vector2 cellPosition = nextCellPosition();
             int cellX = (int)cellPosition.x;
             int cellY = (int)cellPosition.y;
+
+            //add a cross to the ui and set the cells value to 1
             window.addMovable(new Movable(cellToPosition(new Vector2(cellX, cellY)), new Vector2(window.width / 3 - 80, window.height / 3 - 80), DrawType.Cross, Color.red));
             cells[cellX][cellY] = 1;
 
+            //check if any win is recognized
             if(checkForWin(cells))
             {
                 control.setOutputText("Player " + player + " won the game !");

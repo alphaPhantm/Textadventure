@@ -13,9 +13,17 @@ public abstract class Node {
     //reference to the control class
     protected Control control;
 
-
+    /**
+     * Abstract Function that implements the entrance behaviour of a Node
+     */
     public abstract void onEnter();
 
+    /**
+     * The Node constructor
+     * @param edges
+     * @param text
+     * @param control
+     */
     public Node(Edge[] edges, String text, Control control)
     {
         this.control = control;

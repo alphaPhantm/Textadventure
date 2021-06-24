@@ -10,7 +10,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * @author Jonas Braus
+ * @author Jonas Braus, Noah Kessinger
  */
 public class Snake
 {

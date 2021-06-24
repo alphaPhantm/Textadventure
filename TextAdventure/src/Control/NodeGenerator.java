@@ -10,45 +10,33 @@ import java.util.TimerTask;
 
 /**
  * @author Jonas Braus, Noah Kessinger
+ * The Class that is responsable for generating the Node Mesh.
  */
 public class NodeGenerator {
 
     private Control control;
 
+    /**
+     * the constructor for the Node Generator
+     * @param control
+     */
     public NodeGenerator(Control control) {
         this.control = control;
-        onStart();
     }
 
-    private void onStart() {
-
-        Node en1, en2, en3, sn1, sn2, sn3, start, information;
-
-        en1 = createNode("End Node 1");
-        en2 = createNode("End Node 2");
-        en3 = createNode("End Node 3");
-
-        sn1 = createNode("Story Node 1", "Ende 1", "Ende 1", "Ende 2", "Ende 3", en1, en1, en2, en3);
-        sn2 = createNode("Tic Tac Toe", "Ende 3", "Ende 3", "Ende 1", "Ende 2", en3, en3, en1, en2, new Runnable() {
-            @Override
-            public void run()
-            {
-                Snake snake = new Snake(control);
-            }
-        });
-        sn3 = createNode("Pong", "Ende 3", "Ende 3", "Ende 1", "Ende 2", en3, en3, en1, en2, new Runnable() {
-            @Override
-            public void run()
-            {
-                Pong pong = new Pong(control);
-            }
-        });
-
-        start = createNode("Start Node", "Pong", "Story Node 1", "Tic Tac Toe", "Ende 3", sn3, sn1, sn2, en3);
-        information = createNode("Hallo ich bin eine Information ", "Weiter", start);
-        control.setActiveNode(information);
-    }
-
+    /**
+     * function to create a StoryNode
+     * @param nodeText
+     * @param edge1Text
+     * @param edge2Text
+     * @param edge3Text
+     * @param edge4Text
+     * @param pointing1
+     * @param pointing2
+     * @param pointing3
+     * @param pointing4
+     * @return
+     */
     public Node createNode(String nodeText, String edge1Text, String edge2Text, String edge3Text, String edge4Text, Node pointing1, Node pointing2, Node pointing3, Node pointing4) {
         Node n;
         Edge[] edges = new Edge[4];
@@ -77,6 +65,20 @@ public class NodeGenerator {
         return n;
     }
 
+    /**
+     * function to create an ActionNode
+     * @param nodeText
+     * @param edge1Text
+     * @param edge2Text
+     * @param edge3Text
+     * @param edge4Text
+     * @param pointing1
+     * @param pointing2
+     * @param pointing3
+     * @param pointing4
+     * @param run
+     * @return
+     */
     public Node createNode(String nodeText, String edge1Text, String edge2Text, String edge3Text, String edge4Text, Node pointing1, Node pointing2, Node pointing3, Node pointing4, Runnable run) {
         Node n;
         Edge[] edges = new Edge[4];
@@ -104,6 +106,11 @@ public class NodeGenerator {
         return n;
     }
 
+    /**
+     * function to create an EndNode
+     * @param nodeText
+     * @return
+     */
     public Node createNode(String nodeText) {
         Node n = new EndNode(nodeText, control);
 
@@ -111,6 +118,13 @@ public class NodeGenerator {
         return n;
     }
 
+    /**
+     * function to create an InfoNode
+     * @param nodeText
+     * @param edge1Text
+     * @param pointing1
+     * @return
+     */
     public Node createNode(String nodeText, String edge1Text, Node pointing1){
 
         Node n;
