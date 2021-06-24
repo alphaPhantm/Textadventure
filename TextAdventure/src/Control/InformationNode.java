@@ -10,11 +10,9 @@ public class InformationNode extends Node {
     @Override
     public void onEnter()
     {
-        control.setOutputText(text);
-        for(Edge e : edges)
-        {
-            e.onEnable();
-        }
         control.initInfo();
+        control.setOutputText(text);
+        edges[0].onEnable();
+
     }
 }

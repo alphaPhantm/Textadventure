@@ -1,6 +1,7 @@
 package Control;
 
 import GUI.GameWindow;
+import Games.Pong;
 import Games.TicTacToe;
 
 import java.util.Timer;
@@ -33,7 +34,7 @@ public class NodeGenerator {
         });
 
         start = createNode("Start Node", "Ende 1", "Story Node 1", "Tic Tac Toe", "Ende 3", en1, sn1, sn2, en3);
-        information = createNode("Hallo ich bin eine Information", "Weiter", start);
+        information = createNode("Hallo ich bin eine Information ", "Weiter", start);
         control.setActiveNode(information);
     }
 
@@ -100,18 +101,20 @@ public class NodeGenerator {
     }
 
     public Node createNode(String nodeText, String edge1Text, Node pointing1){
+
         Node n;
         Edge[] edges = new Edge[1];
 
         Node[] pointingNode = new Node[1];
         pointingNode[0] = pointing1;
 
+
         String[] edgeText = new String[1];
         edgeText[0] = edge1Text;
 
-        for (int i = 0; i < 1; i++) {
-            edges[i] = new Edge(pointingNode[i], edgeText[i], control, i);
-        }
+
+        edges[0] = new Edge(pointingNode[0], edgeText[0], control, 4);
+
 
 
         n = new InformationNode(edges, nodeText, control);

@@ -10,8 +10,7 @@ import java.awt.event.ActionListener;
 public class GUI extends JFrame {
 
     private JTextArea outputField;
-    private JButton buttons[] = new JButton[4];
-    private JButton infoButton = new JButton();
+    private JButton buttons[] = new JButton[5];
 
     public GUI(Control control)
     {
@@ -72,16 +71,16 @@ public class GUI extends JFrame {
         add(buttons[3]);
 
 
-        infoButton = new JButton();
-        infoButton.setBounds(10, 380, 750, 170);
-        infoButton.setContentAreaFilled(false);
-        infoButton.addActionListener(new ActionListener() {
+        buttons[4] = new JButton();
+        buttons[4].setBounds(10, 380, 750, 170);
+        buttons[4].setContentAreaFilled(false);
+        buttons[4].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 control.activateEdge(0);
             }
         });
-        add(infoButton);
+        add(buttons[4]);
 
 
 
@@ -118,14 +117,14 @@ public class GUI extends JFrame {
     }
 
     public void initInfo(){
-        infoButton.setVisible(true);
+        buttons[4].setVisible(true);
         for (int i = 0; i < 4; i++) {
             buttons[i].setVisible(false);
         }
     }
 
     public void exitInfo(){
-        infoButton.setVisible(false);
+        buttons[4].setVisible(false);
         for (int i = 0; i < 4; i++) {
             buttons[i].setVisible(true);
         }
