@@ -273,7 +273,7 @@ public class GameWindow extends JFrame
 
      public int randomNo0(int min, int max)
     {
-        min--;
+
         max++;
         int erg =((int)(Math.random() * (max - min)) + min);
         while (erg == 0){

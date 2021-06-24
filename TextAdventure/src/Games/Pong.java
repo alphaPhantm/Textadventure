@@ -11,6 +11,7 @@ import GUI.GameWindow;
 
 import Control.KeyCode;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.sql.Time;
@@ -24,12 +25,19 @@ public class Pong {
 
     private GameWindow window;
     private Control control;
-    private Movable player1, player2, ball;
+    private Movable player1, player2, ball, baseline;
+    private JTextField scorePlayer1, scorePlayer2;
 
     private int velocity;
     private Vector2 direction;
+    private int scorePlayer1int, scorePlayer2int;
 
     public Pong(Control control){
+
+        scorePlayer1int = 0;
+        scorePlayer2int = 0;
+
+
 
         //create new GameWindow with Title "Pong"
         window = new GameWindow(new Vector2(800, 600), "Pong");
@@ -40,10 +48,35 @@ public class Pong {
         player2 = new Movable(new Vector2(window.width - 50, window.height / 2), new Vector2(30, 70), DrawType.RectFilled, Color.BLUE);
         ball = new Movable(new Vector2(window.width / 2, window.height / 2), new Vector2(30, 30), DrawType.RectFilled, Color.BLACK);
 
+        baseline = new Movable(new Vector2(window.width / 2, window.height / 2), new Vector2(3, window.height), DrawType.RectFilled, Color.GRAY);
 
+        scorePlayer1int = 0;
+        scorePlayer2int = 0;
+
+        velocity = 1;
+        direction = new Vector2(window.randomNo0(-1, 1), window.randomNo0(-1, 1));
+
+
+
+        scorePlayer1 = new JTextField();
+        scorePlayer1.setBounds(30, 30, 30, 30);
+        scorePlayer1.setEditable(false);
+        scorePlayer1.setText(scorePlayer1int + "");
+
+        scorePlayer2 = new JTextField();
+        scorePlayer2.setBounds( 500, 30, 30, 30);
+        scorePlayer2.setEditable(false);
+        scorePlayer2.setText(scorePlayer2int + "");
+
+        window.setLayout(null);
+
+        window.add(scorePlayer1);
+        window.add(scorePlayer2);
+        window.addMovable(baseline);
         window.addMovable(player1);
         window.addMovable(player2);
         window.addMovable(ball);
+
 
         velocity = 1;
         direction = new Vector2(window.randomNo0(-1, 1), window.randomNo0(-1, 1));
@@ -54,34 +87,30 @@ public class Pong {
             public void run() {
                 if (window.isKeyPressed(KeyCode.W)){
                     if (player1.position.y > 0 + (player1.scale.y /2)){
-                        player1.position.y -= 1;
+                        player1.position.y -= 2;
                     }
                 }
                 if (window.isKeyPressed(KeyCode.S)){
                     if (player1.position.y < window.height - (player1.scale.y /2)){
-                        player1.position.y += 1;
+                        player1.position.y += 2;
                     }
                 }
-                if (window.isKeyPressed(KeyCode.Up)){
-                    if (player2.position.y > 0 + (player1.scale.y /2)){
-                        player2.position.y -= 1;
-                    }
-                }
-                if (window.isKeyPressed(KeyCode.Down)) {
-                    if (player2.position.y < window.height - (player1.scale.y / 2)) {
-                        player2.position.y += 1;
-                    }
-                }
+
 
                 ball.position.add(direction);
 
-
                 if (ball.position.x > window.width - (ball.scale.x /2)){
                     direction = new Vector2(window.randomNo0(-1, 0), window.randomNo0(-1, 1));
+                    ball.position = new Vector2(window.width / 2, window.height / 2);
+                    scorePlayer2int ++;
+
                 }
                 if (ball.position.x < 0 + (ball.scale.x /2)){
                     direction = new Vector2(window.randomNo0(0, 1), window.randomNo0(-1, 1));
+                    ball.position = new Vector2(window.width, window.height);
+                    scorePlayer1int ++;
                 }
+
                 if (ball.position.y > window.height - (ball.scale.y /2)){
                     direction = new Vector2(window.randomNo0(-1, 1), window.randomNo0(-1, 0));
                 }
@@ -89,14 +118,29 @@ public class Pong {
                     direction = new Vector2(window.randomNo0(-1, 1), window.randomNo0(0, 1));
                 }
 
-                if (ball.position.x == player1.position.x && ball.position.y == player1.position.y){
+
+                if (ball.position.x - (ball.scale.x / 2) == player1.position.x + (player1.scale.x / 2) && ((ball.position.y + (ball.scale.y / 2) > player1.position.y - (player1.scale.y / 2) && ball.position.y + (ball.scale.y / 2) < player1.position.y + (player1.scale.y / 2)) || (ball.position.y - (ball.scale.y / 2) < player1.position.y + (player1.scale.y / 2) && ball.position.y - (ball.scale.y / 2) > player1.position.y - (player1.scale.y / 2)))){
                     direction = new Vector2(window.randomNo0(0, 1), window.randomNo0(-1, 1));
                 }
+
+                if (ball.position.x + (ball.scale.x / 2) == player2.position.x - (player1.scale.x / 2) && ((ball.position.y + (ball.scale.y / 2) > player2.position.y - (player2.scale.y / 2) && ball.position.y + (ball.scale.y / 2) < player2.position.y + (player2.scale.y / 2)) || (ball.position.y - (ball.scale.y / 2) < player2.position.y + (player2.scale.y / 2) && ball.position.y - (ball.scale.y / 2) > player2.position.y - (player2.scale.y / 2)))){
+                    direction = new Vector2(window.randomNo0(-1, 0), window.randomNo0(-1, 1));
+                }
+
+
+                if (ball.position.x > (window.width / 2) && player2.position.y < ball.position.y){
+                    player2.position.y += 0.5;
+                }
+                if (ball.position.x > (window.width / 2) && player2.position.y > ball.position.y){
+                    player2.position.y -= 0.5;
+                }
+
+
 
 
             }
         };
-        t.scheduleAtFixedRate(tt, 1, 1);
+        t.scheduleAtFixedRate(tt, 1, 4);
 
 
     }
