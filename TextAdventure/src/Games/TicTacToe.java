@@ -63,8 +63,6 @@ public class TicTacToe
             }
         };
         t.scheduleAtFixedRate(tt, 1, 1);
-
-        nextAICellPosition(0);
     }
 
     /**
@@ -129,6 +127,7 @@ public class TicTacToe
                     control.setOutputText("Player " + player + " won the game !");
                     WindowEvent event = new WindowEvent(window, WindowEvent.WINDOW_CLOSING);
                     Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(event);
+                    player = 2;
                 }
                 //it is the other players turn
                 player = 1;
@@ -137,7 +136,21 @@ public class TicTacToe
 
         } else if (player == 1)
         {
+            Vector2 cellPosition = nextCellPosition();
+            int cellX = (int)cellPosition.x;
+            int cellY = (int)cellPosition.y;
+            window.addMovable(new Movable(cellToPosition(new Vector2(cellX, cellY)), new Vector2(window.width / 3 - 80, window.height / 3 - 80), DrawType.Cross, Color.red));
+            cells[cellX][cellY] = 1;
 
+            if(checkForWin(cells))
+            {
+                control.setOutputText("Player " + player + " won the game !");
+                WindowEvent event = new WindowEvent(window, WindowEvent.WINDOW_CLOSING);
+                Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(event);
+                player = 2;
+            }
+
+            player = 0;
         }
 
 
@@ -204,6 +217,55 @@ public class TicTacToe
 
     private Vector2 nextCellPosition()
     {
-        return null;
+
+        //create an instance of the cells array
+        int[][] tempCells = new int[3][3];
+
+        for(int x = 0; x < 3; x++)
+        {
+            for(int y = 0; y < 3; y++)
+            {
+                tempCells[x][y] = cells[x][y];
+            }
+        }
+
+        //check if there is any win possibility or the enemies would win in next turn
+        for(int x = 0; x < 3; x++)
+        {
+            for(int y = 0; y < 3; y++)
+            {
+                if(tempCells[x][y] == 2)
+                {
+                    tempCells[x][y] = 1;
+                    if(checkForWin(tempCells))
+                    {
+                        return new Vector2(x, y);
+                    }
+                    tempCells[x][y] = 0;
+                    if(checkForWin(tempCells))
+                    {
+                        return new Vector2(x, y);
+                    }
+
+                    tempCells[x][y] = 2;
+                }
+            }
+        }
+
+        //else place the cross anywhere
+        int randX = 0, randY = 0;
+
+        while (true)
+        {
+            randX = (int)(Math.random() * 3);
+            randY = (int)(Math.random() * 3);
+
+            if(tempCells[randX][randY] == 2)
+            {
+                break;
+            }
+        }
+
+        return new Vector2(randX, randY);
     }
 }
