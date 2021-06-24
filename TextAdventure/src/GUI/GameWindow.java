@@ -1,10 +1,13 @@
 package GUI;
 
+import Control.KeyCode;
 import Control.Movable;
 import Control.Vector2;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.*;
@@ -21,6 +24,8 @@ public class GameWindow extends JFrame
     public float width;
     public float height;
 
+    private boolean keyW, keyS, keyA, keyD, keyUp, keyDown, keyLeft, keyRight, keySpace;
+
     /**
      * Constructor
      * @param size
@@ -28,6 +33,8 @@ public class GameWindow extends JFrame
      */
     public GameWindow(Vector2 size, String title)
     {
+        keyW = keyS = keyA = keyD = keyUp = keyDown = keyLeft = keyRight = keySpace = false;
+
         //set some default values for the JFrame
         setSize((int)size.x, (int)size.y);
         setResizable(false);
@@ -77,6 +84,85 @@ public class GameWindow extends JFrame
             public void mouseExited(MouseEvent e)
             {
 
+            }
+        });
+
+        addKeyListener(new KeyListener()
+        {
+            @Override
+            public void keyTyped(KeyEvent e)
+            {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e)
+            {
+                switch(e.getKeyCode())
+                {
+                    case KeyEvent.VK_W:
+                        keyW = true;
+                        break;
+                    case KeyEvent.VK_S:
+                        keyS = true;
+                        break;
+                    case KeyEvent.VK_A:
+                        keyA = true;
+                        break;
+                    case KeyEvent.VK_D:
+                        keyD = true;
+                        break;
+                    case KeyEvent.VK_UP:
+                        keyUp = true;
+                        break;
+                    case KeyEvent.VK_DOWN:
+                        keyDown = true;
+                        break;
+                    case KeyEvent.VK_LEFT:
+                        keyLeft = true;
+                        break;
+                    case KeyEvent.VK_RIGHT:
+                        keyRight = true;
+                        break;
+                    case KeyEvent.VK_SPACE:
+                        keySpace = true;
+                        break;
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e)
+            {
+                switch(e.getKeyCode())
+                {
+                    case KeyEvent.VK_W:
+                        keyW = false;
+                        break;
+                    case KeyEvent.VK_S:
+                        keyS = false;
+                        break;
+                    case KeyEvent.VK_A:
+                        keyA = false;
+                        break;
+                    case KeyEvent.VK_D:
+                        keyD = false;
+                        break;
+                    case KeyEvent.VK_UP:
+                        keyUp = false;
+                        break;
+                    case KeyEvent.VK_DOWN:
+                        keyDown = false;
+                        break;
+                    case KeyEvent.VK_LEFT:
+                        keyLeft = false;
+                        break;
+                    case KeyEvent.VK_RIGHT:
+                        keyRight = false;
+                        break;
+                    case KeyEvent.VK_SPACE:
+                        keySpace = false;
+                        break;
+                }
             }
         });
 
@@ -131,5 +217,41 @@ public class GameWindow extends JFrame
     {
         //calls the remove movable function from the canvas
         canvas.removeMovable(index);
+    }
+
+    public boolean isKeyPressed(KeyCode key)
+    {
+        switch(key)
+        {
+            case W:
+                return keyW;
+
+            case S:
+                return keyS;
+
+            case A:
+                return keyA;
+
+            case D:
+                return keyD;
+
+            case Up:
+                return keyUp;
+
+            case Down:
+                return keyDown;
+
+            case Left:
+                return keyLeft;
+
+            case Right:
+                return keyRight;
+
+            case Space:
+                return keySpace;
+
+        }
+
+        return false;
     }
 }
