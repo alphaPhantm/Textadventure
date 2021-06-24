@@ -134,6 +134,7 @@ public class Pong {
                 if (ball.position.x > (window.width / 2) && player2.position.y > ball.position.y){
                     player2.position.y -= 0.5;
                 }
+                //Test
 
 
 
