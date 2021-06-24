@@ -87,19 +87,20 @@ public class Pong {
                     }
                 }
 
-
+                scorePlayer1.text = scorePlayer1int + "";
+                scorePlayer2.text = scorePlayer2int + "";
                 ball.position.add(direction);
 
-                if (ball.position.x > window.width - (ball.scale.x /2)){
+                if (ball.position.x > player2.position.x){
                     direction = new Vector2(window.randomNo0(-1, 0), window.randomNo0(-1, 1));
                     ball.position = new Vector2(window.width / 2, window.height / 2);
-                    scorePlayer2int ++;
+                    scorePlayer1int ++;
 
                 }
-                if (ball.position.x < 0 + (ball.scale.x /2)){
+                if (ball.position.x < player1.position.x){
                     direction = new Vector2(window.randomNo0(0, 1), window.randomNo0(-1, 1));
                     ball.position = new Vector2(window.width, window.height);
-                    scorePlayer1int ++;
+                    scorePlayer2int ++;
                 }
 
                 if (ball.position.y > window.height - (ball.scale.y /2)){
