@@ -12,6 +12,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.*;
 import java.util.Timer;
+import java.util.concurrent.TimeUnit;
 
 /**
  * This class is an extension of the JFrame especially for little mini games
@@ -23,7 +24,7 @@ public class GameWindow extends JFrame
     public Vector2 mousePosition = new Vector2(0, 0);
     public float width;
     public float height;
-    public float time;
+    public long time, startTime;
 
     private boolean keyW, keyS, keyA, keyD, keyUp, keyDown, keyLeft, keyRight, keySpace;
 
@@ -167,6 +168,8 @@ public class GameWindow extends JFrame
             }
         });
 
+        startTime = System.currentTimeMillis();
+
         //start looping the update function
         Timer t = new Timer();
         TimerTask tt = new TimerTask()
@@ -189,7 +192,7 @@ public class GameWindow extends JFrame
         mousePosition.x = MouseInfo.getPointerInfo().getLocation().x - getX() - (getWidth() - width);
         mousePosition.y = MouseInfo.getPointerInfo().getLocation().y - getY() - (getHeight() - height);
 
-        time = System.currentTimeMillis();
+        time = System.currentTimeMillis() - startTime;
     }
 
     /**

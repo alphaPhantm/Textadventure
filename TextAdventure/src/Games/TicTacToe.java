@@ -104,6 +104,7 @@ public class TicTacToe
      */
     private void update()
     {
+
         if (player == 0 && window.isMousePressed)
         {
             //set isMousePressed to false, in case the player still pressed the mouse button
@@ -141,7 +142,7 @@ public class TicTacToe
 
             }
 
-        } else if (player == 1 && window.time - delayTime > 5)
+        } else if (player == 1 && window.time - delayTime > 1000)
         {
             Vector2 cellPosition = nextCellPosition();
             int cellX = (int)cellPosition.x;
