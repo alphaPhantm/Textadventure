@@ -127,8 +127,7 @@ public class TicTacToe
                 {
                     //display the winner and close the game window
                     control.setOutputText("Player " + player + " won the game !");
-                    WindowEvent event = new WindowEvent(window, WindowEvent.WINDOW_CLOSING);
-                    Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(event);
+                    window.close();
 
                 }
                 //it is the other players turn
@@ -153,8 +152,7 @@ public class TicTacToe
             if(checkForWin(cells))
             {
                 control.setOutputText("Player " + player + " won the game !");
-                WindowEvent event = new WindowEvent(window, WindowEvent.WINDOW_CLOSING);
-                Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(event);
+                window.close();
 
             }
 
@@ -173,8 +171,7 @@ public class TicTacToe
         {
             //display message "no winner !" and end the game
             control.setOutputText("No winner !");
-            WindowEvent event = new WindowEvent(window, WindowEvent.WINDOW_CLOSING);
-            Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(event);
+            window.close();
         }
     }
 

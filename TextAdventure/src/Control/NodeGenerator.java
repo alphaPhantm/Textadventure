@@ -2,6 +2,7 @@ package Control;
 
 import GUI.GameWindow;
 import Games.Pong;
+import Games.Snake;
 import Games.TicTacToe;
 
 import java.util.Timer;
@@ -29,7 +30,7 @@ public class NodeGenerator {
             @Override
             public void run()
             {
-                TicTacToe ticTacToe = new TicTacToe(control);
+                Snake snake = new Snake(control);
             }
         });
 

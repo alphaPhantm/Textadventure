@@ -6,10 +6,7 @@ import Control.Vector2;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.util.*;
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
@@ -259,5 +256,11 @@ public class GameWindow extends JFrame
         }
 
         return false;
+    }
+
+    public void close()
+    {
+        WindowEvent event = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(event);
     }
 }
