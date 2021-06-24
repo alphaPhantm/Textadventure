@@ -19,6 +19,8 @@ public class Snake
     private Vector2 moveDirection;
     private float timeStep = 0;
     private Vector2 lastPosition;
+    private Movable text;
+    private int length = 1;
 
     public Snake(Control control)
     {
@@ -52,6 +54,9 @@ public class Snake
         addPart(cellToPosition(new Vector2(window.random(10, width - 10), window.random(10, height - 10))));
         apple = new Movable(cellToPosition(new Vector2(window.random(5, width - 5), window.random(5, height - 5))), new Vector2(cellSize - 1, cellSize - 1), DrawType.RectFilled, Color.red);
         window.addMovable(apple);
+
+        text = new Movable(new Vector2(window.width / 2, 35), DrawType.Text, Color.blue, "" + length);
+        window.addMovable(text);
 
         lastPosition = new Vector2(player.get(0).position.x, player.get(0).position.y);
 
@@ -106,7 +111,11 @@ public class Snake
             player.add(tempMov);
             window.addMovable(tempMov);
 
-            apple.position = cellToPosition(new Vector2(window.random(0, width - 1), window.random(0, height - 1)));
+            length += 1;
+            text.text = "" + length;
+
+
+            apple.position = cellToPosition(new Vector2(window.random(1, width - 2), window.random(1, height - 2)));
         }
     }
 
