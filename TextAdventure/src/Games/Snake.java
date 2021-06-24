@@ -10,7 +10,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * @author Jonas Braus
+ * @author Jonas Braus, Noah Kessinger
  */
 public class Snake
 {
@@ -24,6 +24,7 @@ public class Snake
     private Vector2 lastPosition;
     private Movable text;
     private int length = 1;
+
 
     public Snake(Control control)
     {

@@ -21,7 +21,7 @@ import java.util.TimerTask;
 import static java.lang.System.exit;
 
 /**
- * @author Noah Kessinger
+ * @author Jonas Braus, Noah Kessinger
  */
 public class Pong {
 
