@@ -16,6 +16,10 @@ public class GUI extends JFrame {
     private JTextArea outputField;
     private JButton buttons[] = new JButton[5];
 
+    /**
+     * Buildign The Main GUI with the Base Items.
+     * @param control
+     */
     public GUI(Control control)
     {
         Font defaultFont = new Font("Arial", 0, 20);
@@ -27,6 +31,9 @@ public class GUI extends JFrame {
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        /*
+        Initialisation of the 4 decition Buttons
+         */
         buttons[0] = new JButton();
         buttons[0].setBounds(10, 380, 360, 80);
         buttons[0].setContentAreaFilled(false);
@@ -89,9 +96,12 @@ public class GUI extends JFrame {
 
 
 
-
+        /*
+        Generating the Output field. In wich the story will be.
+         */
         outputField = new JTextArea();
         outputField.setBounds(10, 10, 765, 350);
+        outputField.setFont(new Font("Arial", Font.PLAIN, 100));
         outputField.setLineWrap(true);
         outputField.setFont(defaultFont);
         outputField.setEditable(false);
@@ -100,26 +110,46 @@ public class GUI extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * Funktion to set The text of a Button.
+     * @param index
+     * @param text
+     */
     public void setButtonText(int index, String text)
     {
         buttons[index].setText(text);
     }
 
+    /**
+     * Set the visibility of the Button to false.
+     * @param index
+     */
     public void hideButtons(int index)
     {
         buttons[index].setVisible(false);
     }
 
+    /**
+     * Set the visibility of the Button to true.
+     * @param index
+     */
     public void showButtons(int index)
     {
         buttons[index].setVisible(false);
     }
 
+    /**
+     * funktion to set the Story text on or JTextArea.
+     * @param text
+     */
     public void setOutputText(String text)
     {
         outputField.setText(text);
     }
 
+    /**
+     * Initialisation of the InfoNode. Hiding the Normal Buttons.
+     */
     public void initInfo(){
         buttons[4].setVisible(true);
         for (int i = 0; i < 4; i++) {
@@ -127,6 +157,9 @@ public class GUI extends JFrame {
         }
     }
 
+    /**
+     * Close the InfoNode and show the Buttons.
+     */
     public void exitInfo(){
         buttons[4].setVisible(false);
         for (int i = 0; i < 4; i++) {

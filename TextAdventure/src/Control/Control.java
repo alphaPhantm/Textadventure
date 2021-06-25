@@ -78,4 +78,5 @@ public class Control {
     public void setOutputText(String text) {
         gui.setOutputText(text);
     }
+
 }
