@@ -41,7 +41,6 @@ public class GameWindow extends JFrame
         setLocationRelativeTo(null);
         setTitle(title);
         setVisible(true);
-        setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
         //create a canvas object
         canvas = new Canvas();
