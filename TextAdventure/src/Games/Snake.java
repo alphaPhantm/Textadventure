@@ -29,7 +29,7 @@ public class Snake
     public Snake(Control control)
     {
         window = new GameWindow(new Vector2(800, 800), "Snake");
-
+        this.control = control;
         //generate the grid
         for (int x = 0; x <= window.width; x += cellSize)
         {
@@ -102,9 +102,24 @@ public class Snake
             if(player.get(0).position.x < 0 || player.get(0).position.y < 0 || player.get(0).position.x > cellToPosition(new Vector2(width, 0)).x || player.get(0).position.y > cellToPosition(new Vector2(0, height)).y)
             {
                 window.close();
-                control.activateEdge(3);
+                if (length > 0){
+                    control.activateEdge(3);
+                    length = -1;
+                }
+
             }
         }
+
+        if (length == 3){
+            window.close();
+            if (length > 0){
+                control.setOutputText("Du hast Gewonnen. Überlege deinen Nächsten Zug.");
+                length = -1;
+            }
+
+
+        }
+
     }
 
 
@@ -144,6 +159,12 @@ public class Snake
                 if(player.get(0).position.x == player.get(i).position.x && player.get(0).position.y == player.get(i).position.y)
                 {
                     window.close();
+                    if (length > 0){
+                        control.activateEdge(3);
+                        length = -1;
+                    }
+
+
                 }
             }
         }

@@ -23,19 +23,27 @@ public class NodeGenerator {
 
     private void onStart() {
 
-        Node en1, en2, en3, sn1, sn2, sn3, en4, information, capter1_1, capter1_2, en, capter2_1, capter3_1, en5, capter4_1;
+        Node en1, en2, en3, sn1, sn2, sn3, en4, information, capter1_1, capter1_2, en, capter2_1, capter3_1, en5, capter4_1, en6, en7, en8, capter5_1;
 
         en1 = createNode("Ihr Verliebt euch und werdet Glücklich.");
         en2 = createNode("Du hast dich verlaufen und findest den weg zurück nicht.");
         en3 = createNode("Du bist an Überforderung gestorben.");
         en4 = createNode("Du bist verhungert.");
         en5 = createNode("Du bist leider ertrunken.");
-        capter3_1 = createNode("SHit");
-        capter2_1 = createNode("KAKA");
+        en6 = createNode("Du hast dich im Maisfeld verlaufen.");
+        en7 = createNode("Du hast das Wildschwein erlegt und bist Glücklich am Essen.");
+        en8 = createNode("Das wilschwein hat dich erlegt und ist glücklich am Essen.");
         en = createNode("Du bist leider Gesorben.");
 
+        capter5_1 = createNode("Du wirst von deinen Freunden bejubelt. Sie nehen dich auf die Schultern. Siehe zu das du nicht herunter fällst. Gweinne mit 3 Punkten vorsprung Pong.", "Laufe zurück in das Maisfeld.", "Du siehst dein Dorf und Läufst hin.", "Jagt das Wildschwein neben dir.", "Du willst das Wildschwein zähmen.", en, en, en, en, new Runnable() {
+            @Override
+            public void run()
+            {
+                Pong pong = new Pong(control);
+            }
+        });
 
-        capter4_1 = createNode("Snake", "Ende 3", "Ende 3", "Ende 1", "Ende 2", en3, en3, en1, en2, new Runnable() {
+        capter4_1 = createNode("Finde den weg durch das LabyrINT, indem du die Schlange auf eine Länge von 20 bringst.", "Laufe zurück in das Maisfeld.", "Du siehst dein Dorf und Läufst hin.", "Jagt das Wildschwein neben dir.", "Du willst das Wildschwein zähmen.", en6, capter5_1, en7, en8, new Runnable() {
             @Override
             public void run()
             {

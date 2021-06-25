@@ -127,7 +127,7 @@ public class TicTacToe
                 if (checkForWin(cells))
                 {
                     //display the winner and close the game window
-                    control.setOutputText("Du hast Gewonnen. Überlege deinen Nächsten Zug.");
+                    control.setOutputText("Du hast den Ausweg aus dem Maisfeld gefunden. Was machst du nun?");
                     window.close();
 
                 }
