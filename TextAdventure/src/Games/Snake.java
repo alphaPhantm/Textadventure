@@ -110,7 +110,7 @@ public class Snake
             }
         }
 
-        if (length == 3){
+        if (length == 20){
             window.close();
             if (length > 0){
                 control.setOutputText("Du hast Gewonnen. Überlege deinen Nächsten Zug.");

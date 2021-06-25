@@ -117,19 +117,22 @@ public class Pong {
                     direction.x *= -1;
                 }
 
-                System.out.println(direction);
+
                 //move the ball
                 ball.position.add(direction);
 
 
                 if (ball.position.x > (window.width / 2) && player2.position.y < ball.position.y){
-                    player2.position.y += 0.5;
+                    player2.position.y += 0.6;
                 }
                 if (ball.position.x > (window.width / 2) && player2.position.y > ball.position.y){
-                    player2.position.y -= 0.5;
+                    player2.position.y -= 0.6;
                 }
 
-
+                if (scorePlayer1int >= scorePlayer2int * 2 && scorePlayer1int > 3){
+                    control.setOutputText("Juhu du hast die bejubelung deiner Freunde überlebt. Du hast dein Zuhause wieder erreicht und wirst dein Leben glücklich weiterführen können.");
+                    window.close();
+                }
 
 
 
