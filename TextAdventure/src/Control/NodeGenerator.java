@@ -23,18 +23,19 @@ public class NodeGenerator {
 
     private void onStart() {
 
-        Node en1, en2, en3, sn1, sn2, sn3, en4, information, capter1_1, capter1_2, en, capter2_1, capter3_1;
+        Node en1, en2, en3, sn1, sn2, sn3, en4, information, capter1_1, capter1_2, en, capter2_1, capter3_1, en5, capter4_1;
 
         en1 = createNode("Ihr Verliebt euch und werdet Glücklich.");
         en2 = createNode("Du hast dich verlaufen und findest den weg zurück nicht.");
         en3 = createNode("Du bist an Überforderung gestorben.");
         en4 = createNode("Du bist verhungert.");
+        en5 = createNode("Du bist leider ertrunken.");
         capter3_1 = createNode("SHit");
         capter2_1 = createNode("KAKA");
         en = createNode("Du bist leider Gesorben.");
 
 
-        sn2 = createNode("Tic Tac Toe", "Ende 3", "Ende 3", "Ende 1", "Ende 2", en3, en3, en1, en2, new Runnable() {
+        capter4_1 = createNode("Snake", "Ende 3", "Ende 3", "Ende 1", "Ende 2", en3, en3, en1, en2, new Runnable() {
             @Override
             public void run()
             {
@@ -42,7 +43,7 @@ public class NodeGenerator {
             }
         });
 
-        capter3_1 = createNode("Gewinne Tic Tac Toe um den Fluss über die Steine zu überqueren.", "Betrete das Maisfeld vor dir.", "Laufe Nach Westen zur Sonne", "Laufe nach Süden.", "Ende 2", en3, en3, en1, en2, new Runnable() {
+        capter3_1 = createNode("Gewinne Tic Tac Toe um den Fluss über die Steine zu überqueren.", "Betrete das Maisfeld vor dir.", "Laufe Nach Westen zur Sonne", "Laufe nach Süden.", "In see Hüpfen und abkühlen", capter4_1, en, en, en5, new Runnable() {
             @Override
             public void run()
             {

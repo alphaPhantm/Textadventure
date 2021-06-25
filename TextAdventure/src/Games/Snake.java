@@ -24,6 +24,7 @@ public class Snake
     private Vector2 lastPosition;
     private Movable text;
     private int length = 1;
+    private Control control;
 
     public Snake(Control control)
     {
@@ -101,6 +102,7 @@ public class Snake
             if(player.get(0).position.x < 0 || player.get(0).position.y < 0 || player.get(0).position.x > cellToPosition(new Vector2(width, 0)).x || player.get(0).position.y > cellToPosition(new Vector2(0, height)).y)
             {
                 window.close();
+                control.activateEdge(3);
             }
         }
     }
