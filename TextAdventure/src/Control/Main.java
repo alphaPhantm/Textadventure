@@ -13,5 +13,6 @@ public class Main {
     {
         //a new object of control class is created
         Control control = new Control();
+        Games.Pong pong = new Games.Pong(control);
     }
 }
